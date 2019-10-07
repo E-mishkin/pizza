@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+fieldset {
+    border: 3px solid #fce7ad;
+    padding: 2em;
+}
+
+legend {
+    font-weight: bold;
+    color: #f9ca47;
+    font-variant: small-caps;
+    font-size: 110%;
+    width: 30%;
+    padding: 10px;
+}
+
+.jumbotron {
+    background-color: #fce7ad;
+}
+
+#main {
+    background-color: white;
+    margin: 0 7em;
+    padding: 3.5em;
+}
+
+#submit {
+    background-color: #843013;
+    border-color: #843013;;
+}
