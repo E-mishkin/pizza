@@ -25,35 +25,49 @@
         <p>Don't worry! Go ahead with ours pizza!</p>
     </div>
 
-        <img src="images/pizza-guy4.png" class="float-right" width="450px">
+        <img src="images/pizza-guy4.png" class="float-right" width="350px">
 
-    <form action="confirmation.html">
+    <form id="pizza-form" action="confirmation.php" method="post">
 
         <fieldset class="form-group">
             <legend>Contact Info</legend>
             <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName">
+                <input type="text" class="form-control" id="firstName" name="firstName">
+                <span class="err" id="err-fname">
+                    Please enter a first name
+                </span>
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName">
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <textarea class="form-control" id="address" rows="3"></textarea>
+                <input type="text" class="form-control" id="lastName" name="lastName">
+                <span class="err" id="err-lname">
+                    Please enter a last name
+                </span>
             </div>
         </fieldset>
 
         <fieldset class="form-group">
             <legend>Pick Up or Delivery</legend>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="method" id="pickup" value="pickup" checked>
+                <input class="form-check-input" type="radio" name="method" id="pickup" value="pickup">
                 <label class="form-check-label" for="pickup">Pickup</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="method" id="delivery" value="delivery" checked>
+                <input class="form-check-input" type="radio" name="method" id="delivery" value="delivery">
                 <label class="form-check-label" for="delivery">Delivery</label>
+            </div>
+            <span class="err" id="err-method">
+                    Please select pickup or delivery
+            </span>
+
+            <!-- Address -->
+            <div class="form-group" id="address-block">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+                <span class="err" id="err-address">
+                    Please enter an address
+                </span>
             </div>
         </fieldset>
 
@@ -79,19 +93,26 @@
                 <input class="form-check-input" type="checkbox" value="chicken" id="chicken" name="toppings[]">
                 <label class="form-check-label" for="chicken">Chicken</label>
             </div>
+            <span class="err" id="err-topping">
+                    Please select a topping
+            </span>
         </fieldset>
 
         <fieldset  class="form-group">
             <legend>Pizza Size</legend>
             <div class="form-group">
                 <label for="size">Select a Size</label>
-                <select class="form-control" id="size">
+                <select class="form-control" id="size" name="size">
                     <option value="none">Select a Size</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                 </select>
+                <span class="err" id="err-size">
+                    Please enter a size
+                </span>
             </div>
+
         </fieldset>
 
         <button id="submit" type="submit" class="btn btn-primary">Submit your order</button>
@@ -104,5 +125,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="scripts/pizza.js"></script>
+    <script>
+        $("#delivery").on("click", function () {
+           $("#address-block").css("display", "block");
+        });
+        $("#pickup").on("click", function () {
+            $("#address-block").css("display", "none");
+        });
+    </script>
 </body>
 </html>

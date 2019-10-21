@@ -20,6 +20,12 @@ legend {
     background-color: #fce7ad;
 }
 
+.err {
+    visibility: hidden;
+    color: red;
+    font-size: 70%;
+}
+
 #main {
     background-color: white;
     margin: 0 7em;
@@ -29,4 +35,8 @@ legend {
 #submit {
     background-color: #843013;
     border-color: #843013;;
+}
+
+#address-block {
+    display: none;
 }
